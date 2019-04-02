@@ -18,15 +18,15 @@ function Egg(type, points, tempX, tempY, tempW, tempH) {
         ellipse(this.x, this.y, this.w, this.h);
     };
 
-    this.update = function() {
+    this.update = function(hit) {
         // Add speed to location
         this.y = this.y + this.speed;
 
         // If square reaches the bottom
         // Reverse speed
-        if (this.y > height) {
+        if (this.y > height || hit) {
             this.y = 100;
-            this.x = chickenX[Math.floor(Math.random() * 3)];
+            this.x = chickenX[Math.floor(Math.random() * 4)];
             // TODO check if is in the basket
         }
     };
