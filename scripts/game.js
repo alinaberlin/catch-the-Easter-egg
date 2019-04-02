@@ -29,3 +29,10 @@ function draw() {
     egg.display();
     basket.display();
 }
+function keyPressed() {
+  if (keyCode === LEFT_ARROW) {
+      basket.moveLeft(50)
+} if (keyCode === RIGHT_ARROW) {
+      basket.moveRight(50)
+}
+}

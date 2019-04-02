@@ -14,9 +14,11 @@ function Basket(coordX, coordY,  width, height)
 
     this.moveLeft = function(pixels) {
         this.coordX -= pixels 
+
     }
 
     this.moveRight = function(pixels) {
         this.coordX += pixels 
     }
 }
+
