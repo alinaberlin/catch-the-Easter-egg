@@ -1,6 +1,7 @@
 let egg;
 let gif_createImg1, gif_createImg2, gif_createImg3, gif_createImg4;
 let bg;
+let basket;
 
 function setup() {
     // preload grafical elements
@@ -14,6 +15,8 @@ function setup() {
     createCanvas(1000, 730);
     // Create ball object(type, points, startX,startY,Size)
     egg = new Egg("normal", 10, 130, 100, 20, 30);
+    basket = new Basket(500, 530, 200, 200)
+    basket.setup()
 }
 
 function draw() {
@@ -24,4 +27,5 @@ function draw() {
     gif_createImg4.position(700, 30);
     egg.update();
     egg.display();
+    basket.display();
 }
