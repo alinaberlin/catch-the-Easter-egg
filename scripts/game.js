@@ -34,7 +34,7 @@ function draw() {
     }
     egg.update(hit);
 
-    textSize(32);
+    textSize(32); 
     fill(0, 102, 153);
     text(counter, 950, 50);
 }
