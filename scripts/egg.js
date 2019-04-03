@@ -30,4 +30,8 @@ function Egg(type, points, tempX, tempY, tempW, tempH) {
             // TODO check if is in the basket
         }
     };
+
+    this.reset = function() {
+        this.y = 100;
+    };
 }
