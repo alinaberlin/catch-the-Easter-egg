@@ -1,5 +1,5 @@
 let egg;
-let gif_createImg1, gif_createImg2, gif_createImg3, gif_createImg4;
+let gif_createImg1, gif_createImg2, gif_createImg3, gif_createImg4, gameOverGif;
 let bg;
 let basket;
 let counter = 0;
@@ -7,30 +7,18 @@ let start;
 let gameOver = false;
 
 function setup() {
-    // preload grafical elements
-    // they should draw in draw method, otherwise we
-    // will not override the ball movement
-    gif_createImg1 = createImg("../asset/animated-chicken.gif");
-    gif_createImg2 = createImg("../asset/animated-chicken.gif");
-    gif_createImg3 = createImg("../asset/animated-chicken.gif");
-    gif_createImg4 = createImg("../asset/animated-chicken.gif");
+
     bg = loadImage("../asset/farm.jpg");
     createCanvas(windowWidth, windowHeight);
-    // Create ball object(type, points, startX,startY,Size)
-
-    egg = new Egg("normal", 10, windowWidth/6 + 50, 100, 20, 30, [windowWidth/6 + 50, (windowWidth/6)*2+50, (windowWidth/6)*3+50, (windowWidth/6)*4+50]);
-    basket = new Basket(windowWidth/2 - 200, windowHeight - 200, 200, 200, windowWidth - 250);
+    egg = new Egg("normal", 10, windowWidth / 6 + 50, 100, 20, 30, [windowWidth / 6 + 50, (windowWidth / 6) * 2 + 50, (windowWidth / 6) * 3 + 50, (windowWidth / 6) * 4 + 50]);
+    basket = new Basket(windowWidth / 2 - 200, windowHeight - 200, 200, 200, windowWidth - 250);
     basket.setup();
 }
 
 function draw() {
     background(bg);
-    //240 480 720 960
-    gif_createImg1.position(windowWidth/6, 30);
-    gif_createImg2.position((windowWidth/6)*2, 30);
-    gif_createImg3.position((windowWidth/6)*3, 30);
-    gif_createImg4.position((windowWidth/6)*4, 30);
     if (start) {
+        gameOverGif = undefined;
         gameOver = false;
         let hit = collideRectCircle(basket.coordX, basket.coordY, basket.width, basket.height, egg.x, egg.y, egg.w);
         if (hit) {
@@ -67,7 +55,15 @@ function keyPressed() {
 function displayGameOver() {
     textSize(48);
     fill(0, 102, 153);
-    text("Game Over. You have " + counter + " points", 200, 350);
+    textAlign(CENTER);
+    text("Game Over. You have " + counter + " points", windowWidth / 2, 300);
+    gameOverGif = createImg("../asset/game-over.gif")
+    gameOverGif.position(windowWidth / 2 - 100, windowHeight / 2 - 100);
+    gif_createImg1 = undefined;
+    gif_createImg2 = undefined;
+    gif_createImg3 = undefined;
+    gif_createImg4 = undefined;
+    egg.resetGravity();
 }
 
 function startGame() {
@@ -76,4 +72,13 @@ function startGame() {
     start = true;
     document.getElementById("start").style.visibility = "hidden";
     document.getElementById("rules").style.visibility = "hidden";
+    gif_createImg1 = createImg("../asset/animated-chicken.gif");
+    gif_createImg2 = createImg("../asset/animated-chicken.gif");
+    gif_createImg3 = createImg("../asset/animated-chicken.gif");
+    gif_createImg4 = createImg("../asset/animated-chicken.gif");
+    gif_createImg1.position(windowWidth / 6, 30);
+    gif_createImg2.position((windowWidth / 6) * 2, 30);
+    gif_createImg3.position((windowWidth / 6) * 3, 30);
+    gif_createImg4.position((windowWidth / 6) * 4, 30);
+    setInterval(() => egg.increaseGravity(), 1000);
 }

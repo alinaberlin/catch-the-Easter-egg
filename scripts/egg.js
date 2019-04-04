@@ -10,8 +10,15 @@ function Egg(type, points, tempX, tempY, tempW, tempH, chickenX) {
     this.w = tempW; // ellipse width
     this.h = tempH; // ellipse height
     this.speed = 4; // speed
+    this.gravity = 0;
 
+    this.increaseGravity = function() {
+        this.gravity += 0.1;
+    }
 
+    this.resetGravity = function() {
+        this.gravity = 0;
+    }
 
     this.display = function () {
         colourCode = colors[Math.floor(Math.random() * 8)]
@@ -39,7 +46,7 @@ function Egg(type, points, tempX, tempY, tempW, tempH, chickenX) {
     this.update = function (hit) {
         // Add speed to location
 
-        this.y = this.y + this.speed;
+        this.y = this.y + this.speed + this.gravity;
 
         // If square reaches the bottom
         // Reverse speed
