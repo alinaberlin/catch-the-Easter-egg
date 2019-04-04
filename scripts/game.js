@@ -16,20 +16,27 @@ function setup() {
     gif_createImg4 = createImg("../asset/animated-chicken.gif");
     bg = loadImage("../asset/farm.jpg");
     createCanvas(windowWidth, windowHeight);
+    mySound = loadSound("asset/farm.mp3");
+
     // Create ball object(type, points, startX,startY,Size)
 
-    egg = new Egg("normal", 10, windowWidth/6 + 50, 100, 20, 30, [windowWidth/6 + 50, (windowWidth/6)*2+50, (windowWidth/6)*3+50, (windowWidth/6)*4+50]);
-    basket = new Basket(windowWidth/2 - 200, windowHeight - 200, 200, 200, windowWidth - 250);
+    egg = new Egg("normal", 10, windowWidth / 6 + 50, 100, 20, 30, [
+        windowWidth / 6 + 50,
+        (windowWidth / 6) * 2 + 50,
+        (windowWidth / 6) * 3 + 50,
+        (windowWidth / 6) * 4 + 50
+    ]);
+    basket = new Basket(windowWidth / 2 - 200, windowHeight - 200, 200, 200, windowWidth - 250);
     basket.setup();
 }
 
 function draw() {
     background(bg);
     //240 480 720 960
-    gif_createImg1.position(windowWidth/6, 30);
-    gif_createImg2.position((windowWidth/6)*2, 30);
-    gif_createImg3.position((windowWidth/6)*3, 30);
-    gif_createImg4.position((windowWidth/6)*4, 30);
+    gif_createImg1.position(windowWidth / 6, 30);
+    gif_createImg2.position((windowWidth / 6) * 2, 30);
+    gif_createImg3.position((windowWidth / 6) * 3, 30);
+    gif_createImg4.position((windowWidth / 6) * 4, 30);
     if (start) {
         gameOver = false;
         let hit = collideRectCircle(basket.coordX, basket.coordY, basket.width, basket.height, egg.x, egg.y, egg.w);
@@ -76,4 +83,7 @@ function startGame() {
     start = true;
     document.getElementById("start").style.visibility = "hidden";
     document.getElementById("rules").style.visibility = "hidden";
+    loop(rate = 2)
+    mySound.setVolume(0.1);
+    mySound.play();
 }
