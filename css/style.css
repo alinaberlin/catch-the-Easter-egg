@@ -6,4 +6,24 @@
     -webkit-justify-content: space-around; /* Safari 6.1+ */
     display: flex;
     justify-content: space-around;
-  }
+}
+/* #start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 20px;
+    width: 20px;
+} */
+
+#rules {
+  font-size: 17px;
+  color:black;
+  border-style: solid;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 400px;
+    height: 100px;
+    width: 240px;
+}

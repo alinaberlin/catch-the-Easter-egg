@@ -6,10 +6,22 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700" rel="stylesheet" />
         <title>Catching the easter gg</title>
+        <link rel="stylesheet" href="css/style.css " />
     </head>
     <body>
-        <button id='start' onclick="startGame()">Start Game</button>
-        <div style='clear: both'></div>
+        <div id="rules">
+            <div>
+                <ul>
+                    Rules
+                    <li>Purple egg = 1point/ Blue egg =2points</li>
+                    <li>Egg is dropped -End of the game</li>
+                </ul>
+            </div>
+            <div>
+                <button id="start" onclick="startGame()">Start Game</button>
+            </div>
+            <!-- <div style="clear: both"></div> -->
+        </div>
         <!-- <div class="container">
             <div class="justify-content:center">
                 <img src="asset/animated-chicken.gif" alt="" />
@@ -20,7 +32,9 @@
         </div> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js"></script>
-       <script src= "https://cdn.jsdelivr.net/gh/bmoren/p5.collide2D@0.6/p5.collide2d.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/bmoren/p5.collide2D@0.6/p5.collide2d.min.js"></script>
+        <script src="sound.js"></script>
+
         <script src="scripts/egg.js"></script>
         <script src="scripts/basket.js"></script>
         <script src="scripts/game.js"></script>

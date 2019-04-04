@@ -3,8 +3,8 @@ let gif_createImg1, gif_createImg2, gif_createImg3, gif_createImg4;
 let bg;
 let basket;
 let counter = 0;
-
 let start;
+let gameOver = false;
 
 function setup() {
     // preload grafical elements
@@ -30,36 +30,49 @@ function draw() {
     gif_createImg3.position(500, 30);
     gif_createImg4.position(700, 30);
     if (start) {
+        gameOver = false;
         let hit = collideRectCircle(basket.coordX, basket.coordY, basket.width, basket.height, egg.x, egg.y, egg.w);
         if (hit) {
-            counter += 1;
+            counter += egg.points;
         } else if (egg.y >= 700) {
-            counter = 0;
+            console.log("game ended");
             start = false;
             document.getElementById("start").style.visibility = "visible";
-            alert("You lost");
+            gameOver = true;
+            displayGameOver();
             egg.reset();
         }
         egg.update(hit);
-
         egg.display();
         basket.display();
     }
-    textSize(32);
+    if (gameOver) {
+        displayGameOver();
+    }
+    textSize(42);
     fill(0, 102, 153);
     text(counter, 950, 50);
 }
 
 function keyPressed() {
     if (keyCode === LEFT_ARROW) {
-        basket.moveLeft(50);
+        basket.moveLeft(80);
     }
     if (keyCode === RIGHT_ARROW) {
-        basket.moveRight(50);
+        basket.moveRight(80);
     }
 }
 
+function displayGameOver() {
+    textSize(48);
+    fill(0, 102, 153);
+    text("Game Over. You have " + counter + " points", 200, 350);
+}
+
 function startGame() {
+    console.log("game started");
+    counter = 0;
     start = true;
     document.getElementById("start").style.visibility = "hidden";
+    document.getElementById("rules").style.visibility = "hidden";
 }
