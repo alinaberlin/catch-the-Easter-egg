@@ -6,8 +6,11 @@ let counter = 0;
 let start;
 let gameOver = false;
 
-function setup() {
+function preload() {
+    mySound = loadSound("asset/farm.mp3");
+}
 
+function setup() {
     bg = loadImage("../asset/farm.jpg");
     createCanvas(windowWidth, windowHeight);
     egg = new Egg("normal", 10, windowWidth / 6 + 50, 100, 20, 30, [windowWidth / 6 + 50, (windowWidth / 6) * 2 + 50, (windowWidth / 6) * 3 + 50, (windowWidth / 6) * 4 + 50]);
@@ -18,6 +21,14 @@ function setup() {
     gif_createImg3 = createImg("../asset/animated-chicken.gif");
     gif_createImg4 = createImg("../asset/animated-chicken.gif");
     gameOverGif = createImg("../asset/game-over.gif");
+    gif_createImg1.hide();
+    gif_createImg2.hide();
+    gif_createImg3.hide();
+    gif_createImg4.hide();
+    gameOverGif.hide();
+    mySound.setVolume(0.1);
+    mySound.loop();
+    mySound.stop();
 }
 
 function draw() {
@@ -70,6 +81,7 @@ function displayGameOver() {
     gif_createImg4.hide();
     egg.resetGravity();
     start = false;
+    mySound.stop();
 }
 
 function displayStartGame() {
@@ -91,4 +103,5 @@ function startGame() {
     start = true;
     counter = 0;
     setInterval(() => egg.increaseGravity(), 1000);
+    mySound.play();
 }
