@@ -15,26 +15,27 @@ function setup() {
     gif_createImg3 = createImg("../asset/animated-chicken.gif");
     gif_createImg4 = createImg("../asset/animated-chicken.gif");
     bg = loadImage("../asset/farm.jpg");
-    createCanvas(1000, 730);
+    createCanvas(windowWidth, windowHeight);
     // Create ball object(type, points, startX,startY,Size)
 
-    egg = new Egg("normal", 10, 130, 100, 20, 30);
-    basket = new Basket(500, 530, 200, 200);
+    egg = new Egg("normal", 10, windowWidth/6 + 50, 100, 20, 30, [windowWidth/6 + 50, (windowWidth/6)*2+50, (windowWidth/6)*3+50, (windowWidth/6)*4+50]);
+    basket = new Basket(windowWidth/2 - 200, windowHeight - 200, 200, 200, windowWidth - 250);
     basket.setup();
 }
 
 function draw() {
     background(bg);
-    gif_createImg1.position(80, 30);
-    gif_createImg2.position(280, 30);
-    gif_createImg3.position(500, 30);
-    gif_createImg4.position(700, 30);
+    //240 480 720 960
+    gif_createImg1.position(windowWidth/6, 30);
+    gif_createImg2.position((windowWidth/6)*2, 30);
+    gif_createImg3.position((windowWidth/6)*3, 30);
+    gif_createImg4.position((windowWidth/6)*4, 30);
     if (start) {
         gameOver = false;
         let hit = collideRectCircle(basket.coordX, basket.coordY, basket.width, basket.height, egg.x, egg.y, egg.w);
         if (hit) {
             counter += egg.points;
-        } else if (egg.y >= 700) {
+        } else if (egg.y >= windowHeight - 100) {
             console.log("game ended");
             start = false;
             document.getElementById("start").style.visibility = "visible";
@@ -51,7 +52,7 @@ function draw() {
     }
     textSize(42);
     fill(0, 102, 153);
-    text(counter, 950, 50);
+    text(counter, windowWidth - 50, 50);
 }
 
 function keyPressed() {

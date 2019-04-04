@@ -1,4 +1,4 @@
-function Basket(coordX, coordY, width, height) {
+function Basket(coordX, coordY, width, height, limit) {
     this.coordX = coordX;
     this.coordY = coordY;
     this.width = width;
@@ -18,7 +18,7 @@ function Basket(coordX, coordY, width, height) {
     };
 
     this.moveRight = function(pixels) {
-        if (this.coordX <= 750) {
+        if (this.coordX <= limit) {
             this.coordX += pixels;
         }
     };
