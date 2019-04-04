@@ -7,23 +7,28 @@
     display: flex;
     justify-content: space-around;
 }
-/* #start {
+#start {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     height: 20px;
-    width: 20px;
-} */
+    width: 100px;
+}
 
 #rules {
-  font-size: 17px;
-  color:black;
-  border-style: solid;
+    font-size: 17px;
+    color:black;
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 50%;
     left: 400px;
-    height: 100px;
-    width: 240px;
+    height: 200px;
+    width: 500px;
+}
+
+canvas {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
