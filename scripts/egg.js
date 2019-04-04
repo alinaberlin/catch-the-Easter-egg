@@ -13,7 +13,7 @@ function Egg(type, points, tempX, tempY, tempW, tempH, chickenX) {
     this.gravity = 0;
 
     this.increaseGravity = function() {
-        this.gravity += 0.1;
+        this.gravity += 0.2;
     }
 
     this.resetGravity = function() {

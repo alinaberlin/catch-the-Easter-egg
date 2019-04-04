@@ -13,12 +13,17 @@ function setup() {
     egg = new Egg("normal", 10, windowWidth / 6 + 50, 100, 20, 30, [windowWidth / 6 + 50, (windowWidth / 6) * 2 + 50, (windowWidth / 6) * 3 + 50, (windowWidth / 6) * 4 + 50]);
     basket = new Basket(windowWidth / 2 - 200, windowHeight - 200, 200, 200, windowWidth - 250);
     basket.setup();
+    gif_createImg1 = createImg("../asset/animated-chicken.gif");
+    gif_createImg2 = createImg("../asset/animated-chicken.gif");
+    gif_createImg3 = createImg("../asset/animated-chicken.gif");
+    gif_createImg4 = createImg("../asset/animated-chicken.gif");
+    gameOverGif = createImg("../asset/game-over.gif");
 }
 
 function draw() {
     background(bg);
     if (start) {
-        gameOverGif = undefined;
+        displayStartGame();
         gameOver = false;
         let hit = collideRectCircle(basket.coordX, basket.coordY, basket.width, basket.height, egg.x, egg.y, egg.w);
         if (hit) {
@@ -57,28 +62,33 @@ function displayGameOver() {
     fill(0, 102, 153);
     textAlign(CENTER);
     text("Game Over. You have " + counter + " points", windowWidth / 2, 300);
-    gameOverGif = createImg("../asset/game-over.gif")
     gameOverGif.position(windowWidth / 2 - 100, windowHeight / 2 - 100);
-    gif_createImg1 = undefined;
-    gif_createImg2 = undefined;
-    gif_createImg3 = undefined;
-    gif_createImg4 = undefined;
+    gameOverGif.show();
+    gif_createImg1.hide();
+    gif_createImg2.hide();
+    gif_createImg3.hide();
+    gif_createImg4.hide();
     egg.resetGravity();
+    start = false;
 }
 
-function startGame() {
+function displayStartGame() {
     console.log("game started");
-    counter = 0;
-    start = true;
     document.getElementById("start").style.visibility = "hidden";
     document.getElementById("rules").style.visibility = "hidden";
-    gif_createImg1 = createImg("../asset/animated-chicken.gif");
-    gif_createImg2 = createImg("../asset/animated-chicken.gif");
-    gif_createImg3 = createImg("../asset/animated-chicken.gif");
-    gif_createImg4 = createImg("../asset/animated-chicken.gif");
     gif_createImg1.position(windowWidth / 6, 30);
     gif_createImg2.position((windowWidth / 6) * 2, 30);
     gif_createImg3.position((windowWidth / 6) * 3, 30);
     gif_createImg4.position((windowWidth / 6) * 4, 30);
+    gif_createImg1.show();
+    gif_createImg2.show();
+    gif_createImg3.show();
+    gif_createImg4.show();
+    gameOverGif.hide();
+}
+
+function startGame() {
+    start = true;
+    counter = 0;
     setInterval(() => egg.increaseGravity(), 1000);
 }
