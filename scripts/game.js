@@ -5,7 +5,9 @@ let basket;
 let counter = 0;
 let start;
 let gameOver = false;
-
+function preload() {
+    mySound = loadSound("asset/farm.mp3");
+}
 function setup() {
     // preload grafical elements
     // they should draw in draw method, otherwise we
@@ -16,8 +18,9 @@ function setup() {
     gif_createImg4 = createImg("../asset/animated-chicken.gif");
     bg = loadImage("../asset/farm.jpg");
     createCanvas(windowWidth, windowHeight);
-    mySound = loadSound("asset/farm.mp3");
-
+    mySound.setVolume(0.1);
+    mySound.loop();
+    mySound.stop();
     // Create ball object(type, points, startX,startY,Size)
 
     egg = new Egg("normal", 10, windowWidth / 6 + 50, 100, 20, 30, [
@@ -75,6 +78,7 @@ function displayGameOver() {
     textSize(48);
     fill(0, 102, 153);
     text("Game Over. You have " + counter + " points", 200, 350);
+    mySound.stop();
 }
 
 function startGame() {
@@ -83,7 +87,5 @@ function startGame() {
     start = true;
     document.getElementById("start").style.visibility = "hidden";
     document.getElementById("rules").style.visibility = "hidden";
-    loop(rate = 2)
-    mySound.setVolume(0.1);
     mySound.play();
 }
