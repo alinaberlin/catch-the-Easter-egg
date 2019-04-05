@@ -56,15 +56,15 @@ function draw() {
     }
     textSize(42);
     fill(0, 102, 153);
-    text(counter, windowWidth - 50, 50);
+    text(counter, windowWidth - 50, 70);
 }
 
 function keyPressed() {
     if (keyCode === LEFT_ARROW) {
-        basket.moveLeft(100);
+        basket.moveLeft(120);
     }
     if (keyCode === RIGHT_ARROW) {
-        basket.moveRight(100);
+        basket.moveRight(120);
     }
 }
 
@@ -73,7 +73,7 @@ function displayGameOver() {
     fill(0, 102, 153);
     textAlign(CENTER);
     text("Game Over. You have " + counter + " points", windowWidth / 2, 300);
-    gameOverGif.position(windowWidth / 2 - 100, windowHeight / 2 - 100);
+    gameOverGif.position(windowWidth / 2 - 100, windowHeight / 2 - 70);
     gameOverGif.show();
     gif_createImg1.hide();
     gif_createImg2.hide();
@@ -87,7 +87,7 @@ function displayGameOver() {
 function displayStartGame() {
     console.log("game started");
     document.getElementById("start").style.visibility = "hidden";
-    document.getElementById("rules").style.visibility = "hidden";
+    //document.getElementById("rules").style.visibility = "hidden";
     gif_createImg1.position(windowWidth / 6, 30);
     gif_createImg2.position((windowWidth / 6) * 2, 30);
     gif_createImg3.position((windowWidth / 6) * 3, 30);
@@ -102,6 +102,6 @@ function displayStartGame() {
 function startGame() {
     start = true;
     counter = 0;
-    setInterval(() => egg.increaseGravity(), 1000);
+    setInterval(() => egg.increaseGravity(), 2000);
     mySound.play();
 }
