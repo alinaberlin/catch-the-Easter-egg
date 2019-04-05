@@ -1,17 +1,17 @@
-# Catch-the-Easter-Egg
+# Catch the Easter Egg
 
-Ideea of the this game is :
-- simple game using Canvas and P5.js for animation and vectorize the game's actions
-- game project  part of learning process at IronHack bootcamp
-- target group : children between 4-7 years old
+## Ideea of the game:
+- Simple game using Canvas and P5.js for animation and vectorize the game's actions
+- The game is a project part of learning process at IronHack bootcamp
+- Target group: children between 4-7 years old
 
-The game functionality:
+## How to play:
 
-- game start : mouse click on the <start> button
-- left and right arrows for left and right basket moves 
-- should catch the eggs that are different and so would score differently
-- purple egg = 1point, blue egg = 2 points, green egg = 3 points
-- speed is incresed byt the time goes and the appearance of different types of eggs is random 
-- game ends when the payer missed to catch the eggs and it's display 'Game over'
+- Game start: click on the <Start Game> button
+- Use left and right arrows for controlling basket moves 
+- Should catch the eggs
+- Are 3 different types of eggs: purple = 1 point, blue = 2 points and green = 4 points
+- Speed is increasing with time 
+- Game ends when the player miss to catch the eggs and it's display 'Game over. You have <nr> points.'
  
-Game is hosted here : https://stoic-blackwell-b62d8c.netlify.com/
+Game is hosted at the following location: https://stoic-blackwell-b62d8c.netlify.com/
