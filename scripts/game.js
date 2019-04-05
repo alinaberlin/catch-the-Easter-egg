@@ -61,10 +61,10 @@ function draw() {
 
 function keyPressed() {
     if (keyCode === LEFT_ARROW) {
-        basket.moveLeft(80);
+        basket.moveLeft(100);
     }
     if (keyCode === RIGHT_ARROW) {
-        basket.moveRight(80);
+        basket.moveRight(100);
     }
 }
 
