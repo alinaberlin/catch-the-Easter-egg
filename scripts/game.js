@@ -12,7 +12,7 @@ function preload() {
 
 function setup() {
     bg = loadImage("../asset/farm.jpg");
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth-20, windowHeight);
     egg = new Egg("normal", 10, windowWidth / 6 + 50, 100, 20, 30, [windowWidth / 6 + 50, (windowWidth / 6) * 2 + 50, (windowWidth / 6) * 3 + 50, (windowWidth / 6) * 4 + 50]);
     basket = new Basket(windowWidth / 2 - 200, windowHeight - 200, 200, 200, windowWidth - 250);
     basket.setup();
