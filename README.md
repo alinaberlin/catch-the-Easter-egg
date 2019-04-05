@@ -12,5 +12,6 @@ The game functionality:
 - should catch the eggs that are different and so would score differently
 - purple egg = 1point, blue egg = 2 points, green egg = 3 points
 - speed is incresed byt the time goes 
+- game ends when the payer missed to catch the eggs and it's display 'Game over'
  
 Game is hosted here : https://stoic-blackwell-b62d8c.netlify.com/
