@@ -11,7 +11,7 @@ The game functionality:
 - left and right arrows for left and right basket moves 
 - should catch the eggs that are different and so would score differently
 - purple egg = 1point, blue egg = 2 points, green egg = 3 points
-- speed is incresed byt the time goes 
+- speed is incresed byt the time goes and the appearance of different types of eggs is random 
 - game ends when the payer missed to catch the eggs and it's display 'Game over'
  
 Game is hosted here : https://stoic-blackwell-b62d8c.netlify.com/
