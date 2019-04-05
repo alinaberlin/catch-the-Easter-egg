@@ -12,6 +12,6 @@
 - Should catch the eggs
 - Are 3 different types of eggs: purple = 1 point, blue = 2 points and green = 4 points
 - Speed is increasing with time 
-- Game ends when the player miss to catch the eggs and it's display 'Game over. You have <nr> points.'
+- Game ends when the player miss to catch the eggs and it's displaying following text: 'Game over. You have <nr> points.'
  
 Game is hosted at the following location: https://stoic-blackwell-b62d8c.netlify.com/
